@@ -1,6 +1,8 @@
 # Boomerang-GDSC2021
 A prototype for a website that hosts the lost and found system of toronto for pets and items.
 
+![Short demo of the webpage](webpage2.gif)
+
 This project is created using GCP, HTML, Javascript and CSS. The database is on firebase. 
 The contributors to the project are:
 1. Harshit Sohaney (1st year UofT comp. eng)

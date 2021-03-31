@@ -1,0 +1,400 @@
+﻿<!DOCTYPE html>
+
+<title> BOOMERANG | MAPS </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+<style type="text/css">
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+        height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+    }
+
+    #description {
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+    }
+
+    #infowindow-content .title {
+        font-weight: bold;
+    }
+
+    #infowindow-content {
+        display: none;
+    }
+
+    #map #infowindow-content {
+        display: inline;
+    }
+
+    .pac-card {
+        margin: 10px 10px 0 0;
+        border-radius: 2px 0 0 2px;
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        outline: none;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
+        background-color: #fff;
+        font-family: Roboto;
+    }
+
+    #pac-container {
+        padding-bottom: 12px;
+        margin-right: 12px;
+    }
+
+    .pac-controls {
+        display: inline-block;
+        padding: 5px 11px;
+    }
+
+        .pac-controls label {
+            font-family: Roboto;
+            font-size: 13px;
+            font-weight: 300;
+        }
+
+    #pac-input {
+        background-color: #fff;
+        font-family: Roboto;
+        font-size: 15px;
+        font-weight: 300;
+        margin-left: 12px;
+        padding: 0 11px 0 13px;
+        text-overflow: ellipsis;
+        width: 400px;
+    }
+
+        #pac-input:focus {
+            border-color: #4d90fe;
+        }
+
+    #title {
+        color: #fff;
+        background-color: #4d90fe;
+        font-size: 25px;
+        font-weight: 500;
+        padding: 6px 12px;
+    }
+
+    #target {
+        width: 345px;
+    }
+    
+</style>
+<script>
+    // This example adds a search box to a map, using the Google Place Autocomplete
+    // feature. People can enter geographical searches. The search box will return a
+    // pick list containing a mix of places and predicted search terms.
+    // This example requires the Places library. Include the libraries=places
+    // parameter when you first load the API. For example:
+    // <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKeUC8tlaXIJhNVwrM0RNsMP9dN2Y2A9Y&libraries=places">
+    function initAutocomplete() {
+        const map = new google.maps.Map(document.getElementById("map"), {
+            center: { lat: -33.8688, lng: 151.2195 },
+            zoom: 13,
+            mapTypeId: "roadmap",
+        });
+        // Create the search box and link it to the UI element.
+        const input = document.getElementById("pac-input");
+        const searchBox = new google.maps.places.SearchBox(input);
+        map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+        // Bias the SearchBox results towards current map's viewport.
+        map.addListener("bounds_changed", () => {
+            searchBox.setBounds(map.getBounds());
+        });
+        let markers = [];
+        // Listen for the event fired when the user selects a prediction and retrieve
+        // more details for that place.
+        searchBox.addListener("places_changed", () => {
+            const places = searchBox.getPlaces();
+
+            if (places.length == 0) {
+                return;
+            }
+            // Clear out the old markers.
+            markers.forEach((marker) => {
+                marker.setMap(null);
+            });
+            markers = [];
+            // For each place, get the icon, name and location.
+            const bounds = new google.maps.LatLngBounds();
+            places.forEach((place) => {
+                if (!place.geometry || !place.geometry.location) {
+                    console.log("Returned place contains no geometry");
+                    return;
+                }
+                const icon = {
+                    url: place.icon,
+                    size: new google.maps.Size(71, 71),
+                    origin: new google.maps.Point(0, 0),
+                    anchor: new google.maps.Point(17, 34),
+                    scaledSize: new google.maps.Size(25, 25),
+                };
+                // Create a marker for each place.
+                markers.push(
+                    new google.maps.Marker({
+                        map,
+                        icon,
+                        title: place.name,
+                        position: place.geometry.location,
+                    })
+                );
+
+                if (place.geometry.viewport) {
+                    // Only geocodes have viewport.
+                    bounds.union(place.geometry.viewport);
+                } else {
+                    bounds.extend(place.geometry.location);
+                }
+            });
+            map.fitBounds(bounds);
+        });
+    }
+</script>
+
+<!--Script to convert address to lat and long --><!-->
+<script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript">
+
+    var geocoder = new google.maps.Geocoder();
+    var address = jQuery('#address').val();
+
+    geocoder.geocode({ 'address': address }, function (results, status) {
+
+        if (status == google.maps.GeocoderStatus.OK) {
+            var latitude = results[0].geometry.location.lat();
+            var longitude = results[0].geometry.location.lng();
+            jQuery('#coordinates').val(latitude + ', ' + longitude);
+        }
+    });
+</script>-->
+
+<style>
+    body {
+        font-family: "Lato", sans-serif
+    }
+
+    .mySlides {
+        display: none
+    }
+
+    .button {
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        margin: 4px 2px;
+        cursor: pointer;
+        text-align: center;
+        transition-duration: 0.4s;
+    }
+
+    .button1 {
+        border-radius: 2px;
+        padding: 2px 55px;
+    }
+
+        .button1:hover {
+            background-color: #FF8E19;
+            color: white;
+        }
+
+    button2 {
+        border-radius: 2px;
+        padding: 1px 55px;
+    }
+
+    .button2:hover {
+        background-color: #FF8E19;
+        color: white;
+    }
+
+    button3 {
+        border-radius: 2px;
+        padding: 1px 55px;
+    }
+
+    .button3:hover {
+        background-color: #006F94;
+        color: white;
+    }
+
+    .container {
+        background: linear-gradient(rgba(210, 105, 30, 0.4), rgba(255, 140, 0, 0.4));
+    }
+    .center {
+        margin-left: auto;
+        margin-right: auto;
+    }
+</style>
+
+<html lang="en">
+<body>
+
+    <!-- Navbar -->
+    <div class="container">
+        <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="Hamburger">
+            <div class="Hamburger" onclick="toggleClass()">
+                <h1>&#9776;</h1>
+                <a href="BoomerangHomePage.html" class="w3-bar-item button button1"><h2><b>Boomerang</b></h2></a>
+                <a href="BoomerangLostPets.html" class="w3-bar-item button button2">Lost Pets</a>
+                <a href="BoomerangLostItem.HTML" class="w3-bar-item button button2">Lost Items</a>
+                <a href="BoomerangMAPS.html" class="w3-bar-item button button3">Maps</a>
+                <a href="BoomerangAuction.html" class="w3-bar-item button button2">Auction</a>
+                <a href="BoomerangDonate.html" class="w3-bar-item button button2">Donate</a>
+                <a href="#contact" class="w3-bar-item button button2 w3-padding">Contact us</a>
+                <a href="BoomerangRegisterPage.html" class="w3-bar-item button button2 w3-padding">Log in/Sign up</a>
+            </div>
+        </nav>
+    </div>
+    <h1 class="w3-wide w3-center" style="color: #006F94"> <b>MAPS</b></h1>
+
+    <div class="w3-half, center" style="width: 500px">
+        <input id="pac-input"
+               class="controls"
+               type="text"
+               placeholder="Search Box" />
+    </div>
+
+    <table class="center" width=75% height=75%>
+        <tr>
+            <td style="text-align: center; vertical-align: middle;">
+                <div id="map"></div>
+                <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+                <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBKeUC8tlaXIJhNVwrM0RNsMP9dN2Y2A9Y&callback=initAutocomplete&libraries=places&v=weekly"async>
+                </script>
+            </td>
+        </tr>
+    </table>
+
+    <!-- The Contact Section -->
+    <div class="w3-black" id="Contact">
+        <div class="w3-container w3-content w3-padding-64" style="max-width:600px">
+            <h2 class="w3-wide w3-center">CONTACT US</h2>
+            <p class="w3-opacity w3-center"><i>Want to become a volunteer? Reach out to us!</i></p>
+            <div class="w3-row w3-padding-32">
+                <div class="w3-col m6 w3-large w3-margin-bottom">
+                    <i class="fa fa-map-marker" style="width:30px"></i> Toronto, CA<br>
+                    <i class="fa fa-phone" style="width:30px"></i> Phone: *Insert phone number*<br>
+                    <i class="fa fa-envelope" style="width:30px"> </i> Email: admin.Boomerang@gmail.com<br>
+                </div>
+                <div class="w3-col m6">
+                    <form action="/action_page.php" target="_blank">
+                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                            </div>
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                            </div>
+                        </div>
+                        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+                        <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </footer>
+
+    <script>
+        function toggleClass() {
+            let menu = document.querySelector(".w3-top");
+            menu.classList.toggle("toggleCls");
+        }
+    </script>
+
+    <script>
+        // This example adds a search box to a map, using the Google Place Autocomplete
+        // feature. People can enter geographical searches. The search box will return a
+        // pick list containing a mix of places and predicted search terms.
+        // This example requires the Places library. Include the libraries=places
+        // parameter when you first load the API. For example:
+        // <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_API_KEY&libraries=places">
+        function initAutocomplete() {
+            const map = new google.maps.Map(document.getElementById("map"), {
+                center: { lat: -33.8688, lng: 151.2195 },
+                zoom: 13,
+                mapTypeId: "roadmap",
+            });
+            // Create the search box and link it to the UI element.
+            const input = document.getElementById("pac-input");
+            const searchBox = new google.maps.places.SearchBox(input);
+            map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+            // Bias the SearchBox results towards current map's viewport.
+            map.addListener("bounds_changed", () => {
+                searchBox.setBounds(map.getBounds());
+            });
+            let markers = [];
+            // Listen for the event fired when the user selects a prediction and retrieve
+            // more details for that place.
+            searchBox.addListener("places_changed", () => {
+                const places = searchBox.getPlaces();
+
+                if (places.length == 0) {
+                    return;
+                }
+                // Clear out the old markers.
+                markers.forEach((marker) => {
+                    marker.setMap(null);
+                });
+                markers = [];
+                // For each place, get the icon, name and location.
+                const bounds = new google.maps.LatLngBounds();
+                places.forEach((place) => {
+                    if (!place.geometry || !place.geometry.location) {
+                        console.log("Returned place contains no geometry");
+                        return;
+                    }
+                    const icon = {
+                        url: place.icon,
+                        size: new google.maps.Size(71, 71),
+                        origin: new google.maps.Point(0, 0),
+                        anchor: new google.maps.Point(17, 34),
+                        scaledSize: new google.maps.Size(25, 25),
+                    };
+                    // Create a marker for each place.
+                    markers.push(
+                        new google.maps.Marker({
+                            map,
+                            icon,
+                            title: place.name,
+                            position: place.geometry.location,
+                        })
+                    );
+
+                    if (place.geometry.viewport) {
+                        // Only geocodes have viewport.
+                        bounds.union(place.geometry.viewport);
+                    } else {
+                        bounds.extend(place.geometry.location);
+                    }
+                });
+                map.fitBounds(bounds);
+            });
+        }
+    </script>
+</body>
+</html>

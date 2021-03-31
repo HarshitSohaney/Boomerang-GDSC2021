@@ -1,0 +1,138 @@
+﻿<!DOCTYPE html>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+
+<style>
+    body, h1 {
+        font-family: "lato", sans-serif
+    }
+
+    body, html {
+        height: 100%
+    }
+
+    .bgimg {
+        background-color: white; 
+        min-height: 100%;
+        background-position: center;
+        background-size: cover;
+    }
+
+    body {
+        font-family: "Lato", sans-serif
+    }
+
+    .mySlides {
+        display: none
+    }
+
+    .button {
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        margin: 4px 2px;
+        cursor: pointer;
+        text-align: center;
+        transition-duration: 0.4s;
+    }
+
+    .button1 {
+        border-radius: 2px;
+        padding: 2px 55px;
+    }
+
+        .button1:hover {
+            background-color: #FF8E19;
+            color: white;
+        }
+
+    button2 {
+        border-radius: 2px;
+        padding: 1px 55px;
+    }
+
+    .button2:hover {
+        background-color: #FF8E19;
+        color: white;
+    }
+
+    button3 {
+        border-radius: 2px;
+        padding: 1px 55px;
+    }
+
+    .button3:hover {
+        background-color: #006F94;
+        color: white;
+    }
+</style>
+<style>
+    .hamburger {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        background-color: white;
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    }
+        /* Position and style the close button (top right corner) */
+        .hamburger .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+</style>
+<script>
+    function openNav() {
+        document.getElementById("hamburger").style.width = "250px"
+        document.getElementById("main").style.marginLeft = "250px"
+        document.body.style.backgroundColor = transparent
+    }
+    function closeNav() {
+        document.getElementById("hamburger").style.width = "0px"
+        document.getElementById("main").style.marginLeft = "0px"
+        document.body.style.backgroundColor = "white"
+    }
+</script>
+
+<html>
+<body>
+    <!--Navbar-->
+    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="Hamburger">
+        <div id="hamburger" class="hamburger">
+            
+            <button href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="background-color: white;">&times;</button>           
+            <a href="BoomerangHomePage.html" class="w3-bar-item button button2"><h2><b>Boomerang</b></h2></a>
+            <a href="BoomerangLostPet.html" class="w3-bar-item button button2">Lost Pets</a>
+            <a href="BoomerangLostItem.HTML" class="w3-bar-item button button2">Lost Items</a>
+            <a href="BoomerangMAPS.html" class="w3-bar-item button button2">Maps</a>
+            <a href="BoomerangAuction.html" class="w3-bar-item button button2">Auction</a>
+            <a href="BoomerangDonate.html" class="w3-bar-item button button3">Donate</a>
+            <a href="#contact" class="w3-bar-item button button2 w3-padding">Contact us</a>
+            <a href="BoomerangRegisterPage.html" class="w3-bar-item button button2 w3-padding">Log in/Sign up</a>
+            <div class="closeMenu"><i class=" fa fa-times"></i></div>
+        </div>
+        <button class="button button2" onclick="openNav()">&#9776; Boomerang</button>
+    </nav>
+
+    <div class="bgimg w3-display-container w3-animate-opacity w3-text-black">
+        <div class="w3-display-topleft w3-padding-large w3-xlarge">
+            Logo
+        </div>
+        <div class="w3-display-middle">
+            <h1 class="w3-jumbo w3-animate-top">COMING SOON</h1>
+            <hr class="w3-border-grey" style="margin:auto;width:40%">
+            <p class="w3-large w3-center">35 days left</p>
+        </div>
+    </div>
+</body>
+</html>

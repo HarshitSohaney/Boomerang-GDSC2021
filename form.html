@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+
+</div>
+<link href="form.css" rel="stylesheet" type="text/css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.3.1/firebase-firestore.js"></script> 
+
+<style>
+  /* Style inputs with type="text", select elements and textareas */
+body {
+  font-family: "Lato", sans-serif
+}
+
+.hamburger {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #111; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+
+/* Position and style the close button (top right corner) */
+.hamburger .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.mySlides {
+  display: none
+}
+
+.button {
+  background-color: white;
+  color: black;
+  font-size: 18px;
+  margin: 4px 2px;
+  cursor: pointer;
+  text-align: center;
+  transition-duration: 0.4s;
+}
+
+.button1 {
+  border-radius: 2px;
+  padding: 2px 55px;
+}
+
+  .button1:hover {
+      background-color: #FF8E19;
+      color: white;
+  }
+
+button2 {
+  border-radius: 2px;
+  padding: 1px 55px;
+}
+
+.button2:hover {
+  background-color: #FF8E19;
+  color: white;
+}
+
+button3 {
+  border-radius: 2px;
+  padding: 1px 55px;
+}
+
+.button3:hover {
+  background-color: #006F94;
+  color: white;
+}
+
+.hamburger {
+  color: black;
+}
+
+input[type=text], select, textarea {
+  width: 100%; /* Full width */
+  padding: 12px; /* Some padding */ 
+  border: 1px solid #ccc; /* Gray border */
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical /* Allow the user to vertically resize the textarea (not horizontally) */
+}
+h1 {text-align: center;}
+/* Style the submit button with a specific background color etc */
+input[type=submit] {
+  background-color: #006f94;
+  color: rgb(255, 255, 255);
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* When moving the mouse over the submit button, add a darker green color */
+input[type=submit]:hover {
+  background-color: #e07200;
+}
+
+/* Add a background color and some padding around the form */
+.container {
+  border-radius: 5px;
+  background-color: lightblue;
+  padding: 15px;
+  margin-left: 300px;
+  margin-right: 300px;
+}
+
+</style>
+<script>
+    function openNav() {
+        document.getElementById("hamburger").style.width = "250px"
+        document.getElementById("main").style.marginLeft = "250px"
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)"
+    }
+    function closeNav() {
+        document.getElementById("hamburger").style.width = "0px"
+        document.getElementById("main").style.marginLeft = "0px"
+        document.body.style.backgroundColor = "white"
+    }
+</script>
+<body>
+    <!--Navbar-->
+    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px">
+        <div id="hamburger" class="hamburger">
+
+              <button href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="background-color: white;">&times;</button>
+    
+            <!--<button class="hamburger" onclick="closeNav()"> <h1>&#9776;</h1> </button>-->
+            <a href="BoomerangHomePage.html" class="w3-bar-item button button1"><h2><b>Boomerang</b></h2></a>
+            <a href="BoomerangLostPets.html" class="w3-bar-item button button2">Lost Pets</a>
+            <a href="BoomerangLostItem.HTML" class="w3-bar-item button button2">Lost Items</a>
+            <a href="BoomerangMAPS.html" class="w3-bar-item button button2">Maps</a>
+            <a href="#" class="w3-bar-item button button2">Auction</a>
+            <a href="#" class="w3-bar-item button button2">Donate</a>
+            <a href="#contact" class="w3-bar-item button button2 w3-padding">Contact us</a>
+            <a href="BoomerangRegisterPage.html" class="w3-bar-item button button2 w3-padding">Log in/Sign up</a>
+           
+          </div>
+          <button onclick="openNav()" class="button2">&#9776; Boomerang</button>
+    </nav>
+    
+    <div class="container">
+        <h1 style="color:#000000"><b>Missing Pet Form</b></h1>
+        <form>
+
+          <label for="fname">Owner's Name</label>
+          <input id="fname" type="text" id="fname" name="firstname" placeholder="Your name..">
+      
+          <label for="pname">Pet's Name</label>
+          <input id="petName" type="text" id="dname" name="petsname" placeholder="Your pet's name..">
+      
+          <label for="lname">Last seen (Location): </label>
+          <input id="lastSeen" type="text" id="lname"  placeholder="Your last name..">
+      
+          <label for="lname">Contact information:</label>
+          <input id="userContact" type="text" id="lname"  placeholder="Mobile number">
+      
+          <label for="Please write features of your pet">Features of your Pet</label>
+          <textarea id="petDescription" name="Please write features of your pet" placeholder="Write something.." style="height:200px"></textarea>
+       
+          <label for="img">Picture of Pet:</label>
+          <input id="petImage" type="file" name="img" accept="image/*">
+      
+          <br></br>
+          <button id="reportButton" type="submit">Report</button>
+        </form>
+    </div>
+    <script src="boomerangTrial.js"></script>
+    <!-- The Contact Section -->
+    <div class="w3-black" id="Contact">
+        <div class="w3-container w3-content w3-padding-64" style="max-width:600px">
+            <h2 class="w3-wide w3-center">CONTACT US</h2>
+            <p class="w3-opacity w3-center"><i>Want to become a volunteer? Reach out to us!</i></p>
+            <div class="w3-row w3-padding-32">
+                <div class="w3-col m6 w3-large w3-margin-bottom">
+                    <i class="fa fa-map-marker" style="width:30px"></i> Toronto, CA<br>
+                    <i class="fa fa-phone" style="width:30px"></i> Phone: +1 (416) 824 8841<br>
+                    <i class="fa fa-envelope" style="width:30px"> </i> Email: admin.Boomerang@gmail.com<br>
+                </div>
+                <div class="w3-col m6">
+                    <form action="/action_page.php" target="_blank">
+                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                            </div>
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                            </div>
+                        </div>
+                        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+                        <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </footer>
+</body>

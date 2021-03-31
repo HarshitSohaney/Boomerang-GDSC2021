@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<title> BOOMERANG | HOME </title>
+
+<!--</style>-->
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {
+        font-family: "Lato", sans-serif
+    }
+
+    .mySlides {
+        display: none
+    }
+
+    .button {
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        margin: 4px 2px;
+        cursor: pointer;
+        text-align: center;
+        transition-duration: 0.4s;
+    }
+
+    .button1 {
+        border-radius: 2px;
+        padding: 2px 55px;
+    }
+
+        .button1:hover {
+            background-color: #006F94;
+            color: white;
+        }
+
+    button2 {
+        border-radius: 2px;
+        padding: 1px 55px;
+    }
+
+    .button2:hover {
+        background-color: #FF8E19;
+        color: white;
+    }
+
+    /*.container {
+        background: linear-gradient(rgba(210, 105, 30, 0.4), rgba(255, 140, 0, 0.4));
+    }*/
+</style>
+<style>
+    .hamburger {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        background-color: white; /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    }
+        /* Position and style the close button (top right corner) */
+        .hamburger .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+</style>
+<script>
+    function openNav() {
+        document.getElementById("hamburger").style.width = "250px"
+        document.getElementById("main").style.marginLeft = "250px"
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)"
+    }
+    function closeNav() {
+        document.getElementById("hamburger").style.width = "0px"
+        document.getElementById("main").style.marginLeft = "0px"
+        document.body.style.backgroundColor = "white"
+    }
+</script>
+<html lang="en">
+<body>
+    <!--Navbar-->
+    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="Hamburger">
+        <div id="hamburger" class="hamburger">
+           
+            <button href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="background-color: white;">&times;</button>            <a href="BoomerangHomePage.html" class="w3-bar-item button button1"><h2><b>Boomerang</b></h2></a>
+            <a href="BoomerangLostPets.html" class="w3-bar-item button button2">Lost Pets</a>
+            <a href="BoomerangLostItem.HTML" class="w3-bar-item button button2">Lost Items</a>
+            <a href="BoomerangMAPS.html" class="w3-bar-item button button2">Maps</a>
+            <a href="BoomerangAuction.html" class="w3-bar-item button button2">Auction</a>
+            <a href="BoomerangDonate.html" class="w3-bar-item button button2">Donate</a>
+            <a href="#contact" class="w3-bar-item button button2 w3-padding">Contact us</a>
+            <a href="BoomerangRegisterPage.html" class="w3-bar-item button button2 w3-padding">Log in/Sign up</a>
+        </div>
+        <button class="button button2" onclick="openNav()">&#9776; Boomerang</button>
+    </nav>
+
+    <!-- Page content -->
+    <div class="w3-content" style="max-width:2000px;margin-top:46px">
+
+        <!-- Automatic Slideshow Images -->
+        <div class="mySlides w3-display-container w3-center">
+            <img src="BoomerangPictures\cat pic.jpg" height="600">
+            <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                <h3>Meet Wiskers</h3>
+                <p><b>Do you know where his home is?</b></p>
+            </div>
+        </div>
+        <div class="mySlides w3-display-container w3-center">
+            <img src="BoomerangPictures\dog pic 2.jpg" height="600">
+            <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                <h3>Meet oscar</h3>
+                <p><b>Help us reunite him with his owner.</b></p>
+            </div>
+        </div>
+        <div class="mySlides w3-display-container w3-center">
+            <img src="BoomerangPictures\dogPic1.jpg" height="600">
+            <div class="w3-display-bottommiddle w3-container w3-text-white w3-padding-32 w3-hide-small">
+                <h3>Help us find his home.</h3>
+                <p><b>What if this was your dog?.</b></p>
+            </div>
+        </div>
+
+        <!-- Info -->
+        <div class="w3-container w3-content w3-center w3-padding-32" style="max-width:800px" id="info">
+            <h2 class="w3-wide" style="color: teal"><b>BOOMERANG</b></h2>
+            <p class="w3-opacity"><i>Toronto's very own lost and found system</i></p>
+            <p class="w3-justify">
+                Welcome to Boomerang. Who are we?, you may ask. We are members of your community
+                dedicated to help you find items and/or pets that you may have lost. We know certain things 
+                and your pets can have a lot of meaning for you and how upsetting it can be to lose them. 
+                We are the very first lost and found system in Toronto. If you have lost something or found something that 
+                you may think someone may be looking for, simply post an ad and you will find what you're looking for
+                in no time. 
+            </p>
+            <div class="w3-row w3-padding-32">
+                <div class="w3-third">
+
+                    <p><b>Lost Pet</b></p>
+                    <img src="BoomerangPictures\lost-pet.jpg" class="w3-round w3-margin-bottom" alt="A cat and a dog" style="width:60%">
+                </div>
+                <div class="w3-third">
+                    <p><b>Lost Item</b></p>
+                    <img src="BoomerangPictures\Lost items.jpg" class="w3-round w3-margin-bottom" alt="Lost Items pic" style="width:60%">
+                </div>
+                <div class="w3-third">
+                    <p><b>Auction</b></p>
+                    <img src="BoomerangPictures\auction.jpg" class="w3-round" alt="Auction pic" style="width:60%">
+                </div>
+            </div>
+        </div>
+
+        <!-- about us-->
+        <div class="w3-container w3-content w3-padding-64" style="max-width:800px">
+            <h2 class="w3-wide w3-center" style="color: teal"><b>ABOUT US</b></h2>
+            <p class="w3-opacity w3-center"><i>Learn more about who we are</i></p><br>
+
+            <p class="w3-justify">
+                We know that some things hold a place very close to your heart.
+                At Boomerang, we are dedicated to helping you find anything that you may have lost.
+                Whether it be your pet or an item that you love.
+                Simply report if here and we will help you find it.
+                We operate at the following areas in Toronto.
+            </p>
+
+            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+                <div class="w3-third w3-margin-bottom">
+                    <img src="BoomerangPictures\Scarborough.jpg" alt="Scarborough" width="200" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>Scarborough</b></p>
+                        <button class="w3-button w3-black w3-margin-bottom"
+                                href=" https://www.google.com/maps/place/Scarborough,+Toronto,+ON/@43.7614045,-79.3053545,11.75z/data=!4m5!3m4!1s0x89d4d05e9e66b609:0xf06e63ce2447807b!8m2!3d43.7764258!4d-79.2317521"
+                                onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;">
+                            View On Map
+                        </button>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom">
+                    <img src="BoomerangPictures\NorthYork.jpg" alt="North York" width="200" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>North York</b></p>
+                        <button class="w3-button w3-black w3-margin-bottom"
+                                href="https://www.youtube.com/watch?v=8367ETnagHo&ab_channel=CokeStudio"
+                                onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;">
+                            View On Map
+                        </button>
+                    </div>
+                </div>
+                <div class="w3-third w3-margin-bottom">
+                    <img src="BoomerangPictures\Downtown.webp" alt="Downtown" width="200" class="w3-hover-opacity">
+                    <div class="w3-container w3-white">
+                        <p><b>Downtown Toronto</b></p>
+                        <button class="w3-button w3-black w3-margin-bottom"
+                                href="https://www.youtube.com/watch?v=8367ETnagHo&ab_channel=CokeStudio" target="_blank"
+                                onclick="window.open(this.href); return false;" onkeypress="window.open(this.href); return false;">
+                            View On Map
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- The Contact Section -->
+        <div class="w3-black" id="Contact">
+            <div class="w3-container w3-content w3-padding-64" style="max-width:600px">
+                <h2 class="w3-wide w3-center">CONTACT US</h2>
+                <p class="w3-opacity w3-center"><i>Want to become a volunteer? Reach out to us!</i></p>
+                <div class="w3-row w3-padding-32">
+                    <div class="w3-col m6 w3-large w3-margin-bottom">
+                        <i class="fa fa-map-marker" style="width:30px"></i> Toronto, CA<br>
+                        <i class="fa fa-phone" style="width:30px"></i> Phone: *Insert phone number*<br>
+                        <i class="fa fa-envelope" style="width:30px"> </i> Email: admin.Boomerang@gmail.com<br>
+                    </div>
+                    <div class="w3-col m6">
+                        <form action="/action_page.php" target="_blank">
+                            <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                                <div class="w3-half">
+                                    <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                                </div>
+                                <div class="w3-half">
+                                    <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                                </div>
+                            </div>
+                            <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+                            <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </footer>
+
+    <script>
+        // Automatic Slideshow - change image every 4 seconds
+        var myIndex = 0;
+        carousel();
+
+        function carousel() {
+            var i;
+            var x = document.getElementsByClassName("mySlides");
+            for (i = 0; i < x.length; i++) {
+                x[i].style.display = "none";
+            }
+            myIndex++;
+            if (myIndex > x.length) { myIndex = 1 }
+            x[myIndex - 1].style.display = "block";
+            setTimeout(carousel, 4000);
+        }
+
+        // Used to toggle the menu on small screens when clicking on the menu button
+        function myFunction() {
+            var x = document.getElementById("navDemo");
+            if (x.className.indexOf("w3-show") == -1) {
+                x.className += " w3-show";
+            } else {
+                x.className = x.className.replace(" w3-show", "");
+            }
+        }
+
+        // When the user clicks anywhere outside of the modal, close it
+        var modal = document.getElementById('ticketModal');
+        window.onclick = function (event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+
+</body>
+</html>

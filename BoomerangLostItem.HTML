@@ -1,0 +1,199 @@
+﻿<!DOCTYPE html>
+
+<title> BOOMERANG | LOST ITEMS </title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+    body {
+        font-family: "Lato", sans-serif
+    }
+
+    .mySlides {
+        display: none
+    }
+
+    .button {
+        background-color: white;
+        color: black;
+        font-size: 18px;
+        margin: 4px 2px;
+        cursor: pointer;
+        text-align: center;
+        transition-duration: 0.4s;
+    }
+
+    .button1 {
+        border-radius: 2px;
+        padding: 2px 55px;
+    }
+
+        .button1:hover {
+            background-color: #006F94;
+            color: white;
+        }
+
+    button2 {
+        border-radius: 2px;
+        padding: 1px 55px;
+    }
+
+    .button2:hover {
+        background-color: #FF8E19;
+        color: white;
+    }
+
+    .button4 {
+        background-color: #006F94; /* blue */
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 2px;
+        padding: 25px 25px;
+    }
+
+    .button3 {
+        background-color: #006F94; /* blue */
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 18px;
+        margin: 4px 2px;
+        cursor: pointer;
+        border-radius: 2px;
+        padding: 16px 16px;
+    }
+
+    .container {
+        background: linear-gradient(rgba(210, 105, 30, 0.4), rgba(255, 140, 0, 0.4));
+    }
+</style>
+<style>
+    .hamburger {
+        height: 100%; /* 100% Full-height */
+        width: 0; /* 0 width - change this with JavaScript */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Stay on top */
+        top: 0; /* Stay at the top */
+        left: 0;
+        background-color: white; /* Black*/
+        overflow-x: hidden; /* Disable horizontal scroll */
+        padding-top: 60px; /* Place content 60px from the top */
+        transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+    }
+        /* Position and style the close button (top right corner) */
+        .hamburger .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+</style>
+<script>
+    function openNav() {
+        document.getElementById("hamburger").style.width = "250px"
+        document.getElementById("main").style.marginLeft = "250px"
+        document.body.style.backgroundColor = "rgba(0,0,0,0.4)"
+    }
+    function closeNav() {
+        document.getElementById("hamburger").style.width = "0px"
+        document.getElementById("main").style.marginLeft = "0px"
+        document.body.style.backgroundColor = "white"
+    }
+</script>
+
+<html lang="en">
+<body>
+
+    <!--Navbar-->
+    <nav class="w3-sidebar w3-bar-block w3-white w3-collapse w3-top" style="z-index:3;width:250px" id="Hamburger">
+        <div id="hamburger" class="hamburger">
+            
+            <button href="javascript:void(0)" class="closebtn" onclick="closeNav()" style="background-color: white;">&times;</button>
+            <a href="BoomerangHomePage.html" class="w3-bar-item button button2"><h2><b>Boomerang</b></h2></a>
+            <a href="BoomerangLostPets.html" class="w3-bar-item button button2">Lost Pets</a>
+            <a href="BoomerangLostItem.HTML" class="w3-bar-item button button1">Lost Items</a>
+            <a href="BoomerangMAPS.html" class="w3-bar-item button button2">Maps</a>
+            <a href="BoomerangAuction.html" class="w3-bar-item button button2">Auction</a>
+            <a href="BoomerangDonate.html" class="w3-bar-item button button2">Donate</a>
+            <a href="#contact" class="w3-bar-item button button2 w3-padding">Contact us</a>
+            <a href="BoomerangRegisterPage.html" class="w3-bar-item button button2 w3-padding">Log in/Sign up</a>
+        </div>
+        <button class="button button2" onclick="openNav()">&#9776; Boomerang</button>
+    </nav>
+
+    <!--The Ad Section //commented because we may use sections of the code-->
+    <div class="w3-white" id="Ad">
+        <div class="w3-container w3-content w3-padding-16" style="max-width:800px">
+            <h1 class="w3-wide w3-center" style="color: #006F94"> <b>LOST ITEMS</b></h1>
+            <p class="w3-opacity w3-center"><i>Help Us return these valuables to their owners.</i></p><br>
+            <div class="w3-row-padding w3-padding-32" style="margin:0 -16px">
+                <div class="w3-container w3-white">
+                    <table width=100% height=100%>
+                        <tr>
+                            <td>
+                                <div class=".button">
+                                    <button class="button4 w3-margin-bottom">Report Item As Found</button>
+                                    <br>
+                                    <form method="get" action="form.html">
+                                        <button class=" button3 w3-margin-bottom" type="submit">Did you LOSE an Item? <br>Click here to post an ad!</button>
+                                        <button class=" button3 w3-margin-bottom" onclick="document.getElementById('ticketModal').style.display='block'">Did you FIND an item?<br> Fill out the form!</button>
+                                    </form>
+
+                                </div>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The Contact Section -->
+    <div class="w3-black" id="Contact">
+        <div class="w3-container w3-content w3-padding-64" style="max-width:600px">
+            <h2 class="w3-wide w3-center">CONTACT US</h2>
+            <p class="w3-opacity w3-center"><i>Want to become a volunteer? Reach out to us!</i></p>
+            <div class="w3-row w3-padding-32">
+                <div class="w3-col m6 w3-large w3-margin-bottom">
+                    <i class="fa fa-map-marker" style="width:30px"></i> Toronto, CA<br>
+                    <i class="fa fa-phone" style="width:30px"></i> Phone: *Insert phone number*<br>
+                    <i class="fa fa-envelope" style="width:30px"> </i> Email: admin.Boomerang@gmail.com<br>
+                </div>
+                <div class="w3-col m6">
+                    <form action="/action_page.php" target="_blank">
+                        <div class="w3-row-padding" style="margin:0 -16px 8px -16px">
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="text" placeholder="Name" required name="Name">
+                            </div>
+                            <div class="w3-half">
+                                <input class="w3-input w3-border" type="text" placeholder="Email" required name="Email">
+                            </div>
+                        </div>
+                        <input class="w3-input w3-border" type="text" placeholder="Message" required name="Message">
+                        <button class="w3-button w3-black w3-section w3-right" type="submit">SEND</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--Footer-->
+    <footer class="w3-container w3-padding-64 w3-center w3-opacity w3-light-grey w3-xlarge">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+    </footer>
+</body>
+</html>

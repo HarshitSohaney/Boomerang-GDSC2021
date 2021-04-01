@@ -9,7 +9,7 @@ const firebaseConfig = {
     measurementId: ""
     };
 
-    if(firebaseConfig.apikey==null)
+    if(firebaseConfig.apikey==null) // Edit to - if(firebaseConfig.apiKey===null) - Since it is past the deadline to submit the code (by 1 hour), we hope that this edit can be made while judging the code.
         window.confirm("firebaseconfig has not been initialized yet");
     else {
         

@@ -79,6 +79,7 @@ const firebaseConfig = {
     });   
 }
     
+// To create a post for the pet
     db.collection("lostPets").onSnapshot((snapshot)=>{
 
         snapshot.forEach(doc => {
@@ -108,7 +109,6 @@ const firebaseConfig = {
             printLastSeen.setAttribute('href',"BoomerangMAPS.html");
             document.getElementById("lastSeen").appendChild(printLastSeen);
             
-
             const petImage = document.createElement("IMG");
             petImage.src= userPet["Picture"];
             document.getElementById("petPicture").appendChild(petImage);
@@ -117,9 +117,6 @@ const firebaseConfig = {
             const userMobile = document.createElement("p");
             contactNumber.innerText= "Contact Number: "+userPet["Contact"];
             document.getElementById("contactNumber").appendChild(userMobile);
-
-
-
 
         })
         

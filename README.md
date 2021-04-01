@@ -20,7 +20,7 @@ You can run the website from any of the html pages by simply opening them. The n
 
 ## Firebase Configuration
 In order to run the firebase database, you must connect to the database through console.firebase.google.com . You must have firebase SDK's downloaded on your computer and initialize the firebase database as needed. In order to run the code with a functional database, you must change the firebaseConfig to the one set by your account. 
-Code snippet to change from boomerangTrial.js :
+Code snippet to change from [boomerangTrial](https://https://github.com/HarshitSohaney/Boomerang-GDSC2021/boomerangTrial.js) :
 
       const firebaseConfig = {
           apiKey: "inputHere",
@@ -31,8 +31,6 @@ Code snippet to change from boomerangTrial.js :
           appId: "inputHere",
           measurementId: "inputHere"
           };
-
-          firebase.initializeApp(firebaseConfig);
           
  Further instructions on adding firebase can be found here https://firebase.google.com/docs/web/setup
  

@@ -1,4 +1,4 @@
-
+//Fill in config keys from firebase firestore
 const firebaseConfig = {
     apiKey: "",
     authDomain: "",
@@ -9,23 +9,21 @@ const firebaseConfig = {
     measurementId: ""
     };
 
-    if(firebaseConfig.apikey==null) // Edit to - if(firebaseConfig.apiKey===null) - Since it is past the deadline to submit the code (by 1 hour), we hope that this edit can be made while judging the code.
-        window.confirm("firebaseconfig has not been initialized yet");
+//To check if the user has updated the firebase configuration according to the instructions in the README.md file
+    if(firebaseConfig.apiKey===null)
+        window.confirm("firebaseconfig has not been initialized yet"); //If this message is shown, the firebase keys have not been filled
     else {
         
         try{
             firebase.initializeApp(firebaseConfig);
         }
         catch(error){
-            window.confirm("Error initializing the database based on the user configuration")
+            window.confirm("Error initializing the database based on the user configuration") //Incorrect keys were entered
         }
     }
-
-
-
     var db = firebase.firestore();
 
-   
+   //intializing variables
    const inputName = document.querySelector("#userName");
     const inputPassword = document.querySelector("#userPassword");
     const inputEmail = document.querySelector("#userEmail");
@@ -38,7 +36,8 @@ const firebaseConfig = {
     const refreshButton=document.querySelector("#Refresh");
     const formUserNumber =document.querySelector("#userContact");
     const formLastSeen=document.querySelector("#lastSeen");
-    
+
+//    Registrating page - to save user account information to database and create a new document for the user
     if(saveButton!=null){
         saveButton.addEventListener("click", function addData(event) {
             event.preventDefault();
@@ -57,6 +56,8 @@ const firebaseConfig = {
         
         });
     }
+
+// Lost Pets page - to create a new document for a lost pet
     if(reportButton!=null){ 
         reportButton.addEventListener("click", function addData(event) {
         event.preventDefault();
@@ -75,9 +76,7 @@ const firebaseConfig = {
         });
         if(window.confirm('Posted! Your beloved pet will be found in no time!'));
             
-    });
-
-    
+    });   
 }
     
     db.collection("lostPets").onSnapshot((snapshot)=>{
